@@ -41,7 +41,7 @@ CREATE TABLE branch_staff (
 -- Parcel Table
 -- ===============================
 CREATE TABLE parcels (
-    parcel_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     order_id VARCHAR(50) NOT NULL,
     sender_name VARCHAR(100),
     sender_address VARCHAR(255),
@@ -50,15 +50,22 @@ CREATE TABLE parcels (
     receiver_address VARCHAR(255),
     receiver_phone VARCHAR(15),
     delivery_type VARCHAR(15),
-    pickup_branch VARCHAR(255),
+    pickup_branch INT,
     weight VARCHAR(100),
     delivery_charge VARCHAR(255),
     total_amount INT,
-    pickup_branch VARCHAR(255),
     delivery_date DATE,
     status VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (pickup_branch) REFERENCES branches (id)
+);
+
+-- ===============================
+-- Parcel Status Table (if required)
+-- ===============================
+CREATE TABLE parcel_status (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    status_name VARCHAR(50) NOT NULL
 );
 
 -- ===============================
@@ -101,21 +108,20 @@ CREATE TABLE payments (
     amount DECIMAL(10, 2),
     payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     payment_status_id INT DEFAULT 1,
-    FOREIGN KEY (courier_id) REFERENCES couriers(courier_id),
-    FOREIGN KEY (payment_status_id) REFERENCES payment_status(status_id)
+    FOREIGN KEY (parcel_id) REFERENCES parcels(id),
+    FOREIGN KEY (payment_status_id) REFERENCES payment_status(id)
 );
 
 -- ===============================
 -- Parcel Track Table
 -- ===============================
-
 CREATE TABLE parcel_track (
     id INT AUTO_INCREMENT PRIMARY KEY,
     parcel_id INT,
-    order_id VARCHAR (50),
-    parcel_status VARCHAR (50),
+    order_id VARCHAR(50),
+    parcel_status_id INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (parcel_id) REFERENCES parcels(id),
     FOREIGN KEY (order_id) REFERENCES parcels(order_id),
-    FOREIGN KEY (parcel_status) REFERENCES parcels(status)
-):
+    FOREIGN KEY (parcel_status_id) REFERENCES parcel_status(id)
+);
