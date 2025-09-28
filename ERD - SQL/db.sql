@@ -2,7 +2,7 @@
 -- Role Table
 -- ===============================
 CREATE TABLE role (
-  role_id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   role_type VARCHAR(50) NOT NULL
 );
 
@@ -19,7 +19,7 @@ CREATE TABLE users (
   phone VARCHAR(20) NOT NULL,
   password VARCHAR(50) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (role_id) REFERENCES role (role_id)
+  FOREIGN KEY (role_id) REFERENCES role (id)
 );
 
 -- ===============================
@@ -38,17 +38,11 @@ CREATE TABLE branch_staff (
 );
 
 -- ===============================
--- Parcel Status Table
+-- Parcel Table
 -- ===============================
-CREATE TABLE parcel_status (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    status_name VARCHAR(50) NOT NULL
-);
-
--- Updated Parcel Table: Foreign Key for status
 CREATE TABLE parcels (
     parcel_id INT AUTO_INCREMENT PRIMARY KEY,
-    sender_id INT,
+    order_id VARCHAR(50) NOT NULL,
     sender_name VARCHAR(100),
     sender_address VARCHAR(255),
     sender_phone VARCHAR(15),
@@ -61,12 +55,10 @@ CREATE TABLE parcels (
     delivery_charge VARCHAR(255),
     total_amount INT,
     pickup_branch VARCHAR(255),
-    status_id INT DEFAULT 1,
     delivery_date DATE,
+    status VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (status_id) REFERENCES parcel_status(id)
     FOREIGN KEY (pickup_branch) REFERENCES branches (id)
-
 );
 
 -- ===============================
@@ -80,6 +72,16 @@ CREATE TABLE branches (
   zip_code VARCHAR(100) NOT NULL,
   district VARCHAR(100) NOT NULL,
   contact VARCHAR(15) NOT NULL
+);
+
+-- ===============================
+-- Pickup Request Table
+-- ===============================
+CREATE TABLE pickup_req (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pickup_address VARCHAR(100) NOT NULL,
+    contact VARCHAR(20) NOT NULL,
+    pickup_time DATETIME NOT NULL
 );
 
 -- ===============================
@@ -98,8 +100,22 @@ CREATE TABLE payments (
     parcel_id INT,
     amount DECIMAL(10, 2),
     payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    payment_status_id INT DEFAULT 1,  -- Foreign Key for payment status (Pending by default)
+    payment_status_id INT DEFAULT 1,
     FOREIGN KEY (courier_id) REFERENCES couriers(courier_id),
     FOREIGN KEY (payment_status_id) REFERENCES payment_status(status_id)
 );
 
+-- ===============================
+-- Parcel Track Table
+-- ===============================
+
+CREATE TABLE parcel_track (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    parcel_id INT,
+    order_id VARCHAR (50),
+    parcel_status VARCHAR (50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (parcel_id) REFERENCES parcels(id),
+    FOREIGN KEY (order_id) REFERENCES parcels(order_id),
+    FOREIGN KEY (parcel_status) REFERENCES parcels(status)
+):
