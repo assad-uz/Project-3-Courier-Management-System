@@ -10,7 +10,7 @@ CREATE TABLE role (
 -- Users Table
 -- ===============================
 CREATE TABLE users (
-  user_id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   role_id INT NOT NULL,
   firstname VARCHAR(100) NOT NULL,
   lastname VARCHAR(100) NOT NULL,
@@ -43,6 +43,7 @@ CREATE TABLE branch_staff (
 CREATE TABLE parcels (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id VARCHAR(50) NOT NULL,
+    created_by INT,
     sender_name VARCHAR(100),
     sender_address VARCHAR(255),
     sender_phone VARCHAR(15),
@@ -57,6 +58,7 @@ CREATE TABLE parcels (
     delivery_date DATE,
     status VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES users(id),
     FOREIGN KEY (pickup_branch) REFERENCES branches (id)
 );
 
