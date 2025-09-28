@@ -755,6 +755,7 @@ const dashboard = () => {
                   {/*/ Transactions */}
                 </div>
               </div>
+              
     </div>
   );
 };
