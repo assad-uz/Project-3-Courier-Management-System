@@ -76,7 +76,7 @@ const Navbar = () => {
                             </div>
                             <div className="flex-grow-1">
                               <span className="fw-semibold d-block">
-                                John Doe
+                                Assaduzzaman Shaon
                               </span>
                               <small className="text-muted">Admin</small>
                             </div>
