@@ -10,25 +10,28 @@ const Master = () => {
       <div className="layout-wrapper layout-content-navbar">
         <div className="layout-container">
           {/* Menu */}
-          <Sidebar/>
+          <Sidebar />
           {/* / Menu */}
           {/* Layout container */}
           <div className="layout-page">
             {/* Navbar */}
-            <Navbar/>
+            <Navbar />
             {/* / Navbar */}
             {/* Content wrapper */}
             <div className="content-wrapper">
               {/* Content */}
-              <div className="card-body">
-                {/* Insert Your content here */}
+              <div class="container-xxl flex-grow-1 container-p-y">
+                <div className="card-body">
+                  {/* Insert Your content here */}
 
-                Start creating your amazing application!
-
+                  Start creating your amazing application!
+                  
+                </div>
               </div>
+
               {/* / Content */}
               {/* Footer */}
-              <Footer/>
+              <Footer />
               {/* / Footer */}
               <div className="content-backdrop fade" />
             </div>
@@ -40,7 +43,6 @@ const Master = () => {
         <div className="layout-overlay layout-menu-toggle" />
       </div>
       {/* / Layout wrapper */}
-      
     </div>
   );
 };
