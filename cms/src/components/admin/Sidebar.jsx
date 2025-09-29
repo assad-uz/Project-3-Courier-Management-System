@@ -5,6 +5,7 @@ const Sidebar = () => {
   // Separate state for each section
   const [userOpen, setUserOpen] = useState(false);
   const [branchesOpen, setBranchesOpen] = useState(false);
+  const [bstaffOpen, setBstaffOpen] = useState(false);
 
   return (
     <div>
@@ -138,6 +139,39 @@ const Sidebar = () => {
           <li className="menu-header small text-uppercase">
             <span className="menu-header-text">Pages</span>
           </li>
+
+            <li className={`menu-item ${bstaffOpen ? "open" : ""}`}>
+            <a
+              href="#"
+              className="menu-link menu-toggle"
+              onClick={(e) => {
+                e.preventDefault();
+                setBstaffOpen(!bstaffOpen);
+              }}
+            >
+              <i className="menu-icon tf-icons bx bx-building" />
+              <div>Branch Staff</div>
+            </a>
+            {bstaffOpen && (
+              <ul className="menu-sub">
+                <li className="menu-item">
+                  <Link to="/add-branch-staff" className="menu-link">
+                    <div>Add New</div>
+                  </Link>
+                </li>
+                <li className="menu-item">
+                  <Link to="/manage-branch-staff" className="menu-link">
+                    <div>Manage All</div>
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          {/* Documentation */}
+          <li className="menu-header small text-uppercase">
+            <span className="menu-header-text">Others</span>
+          </li>
           <li className="menu-item">
             <a
               href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
@@ -148,6 +182,8 @@ const Sidebar = () => {
               <div>Documentation</div>
             </a>
           </li>
+
+          
         </ul>
       </aside>
     </div>
