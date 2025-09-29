@@ -125,6 +125,14 @@ const Sidebar = () => {
               </ul>
             )}
           </li>
+          <li className="menu-item">
+            <Link to="/reg-list"
+              className="menu-link"
+            >
+              <i className="menu-icon tf-icons bx bx-list-ul" />
+              <div>Registration</div>
+            </Link>
+          </li>
 
           {/* Pages Section */}
           <li className="menu-header small text-uppercase">
