@@ -63,7 +63,7 @@ CREATE TABLE parcels (
 );
 
 -- ===============================
--- Parcel Status Table (if required)
+-- Parcel Status Table
 -- ===============================
 CREATE TABLE parcel_status (
     id INT AUTO_INCREMENT PRIMARY KEY,
