@@ -64,7 +64,7 @@ const Sidebar = () => {
         <ul className="menu-inner py-1">
           {/* Dashboard */}
           <li className="menu-item active">
-            <Link to="/" className="menu-link">
+            <Link to="/dashboard" className="menu-link">
               <i className="menu-icon tf-icons bx bx-home-circle" />
               <div>Dashboard</div>
             </Link>
