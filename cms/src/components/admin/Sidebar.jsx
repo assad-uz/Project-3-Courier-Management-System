@@ -6,6 +6,7 @@ const Sidebar = () => {
   const [userOpen, setUserOpen] = useState(false);
   const [branchesOpen, setBranchesOpen] = useState(false);
   const [bstaffOpen, setBstaffOpen] = useState(false);
+  const [parcelOpen, setParcelOpen] = useState(false);
 
   return (
     <div>
@@ -153,6 +154,34 @@ const Sidebar = () => {
               <div>Branch Staff</div>
             </a>
             {bstaffOpen && (
+              <ul className="menu-sub">
+                <li className="menu-item">
+                  <Link to="/add-branch-staff" className="menu-link">
+                    <div>Add New</div>
+                  </Link>
+                </li>
+                <li className="menu-item">
+                  <Link to="/manage-branch-staff" className="menu-link">
+                    <div>Manage All</div>
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          <li className={`menu-item ${parcelOpen ? "open" : ""}`}>
+            <a
+              href="#"
+              className="menu-link menu-toggle"
+              onClick={(e) => {
+                e.preventDefault();
+                setParcelOpen(!parcelOpen);
+              }}
+            >
+              <i className="menu-icon tf-icons bx bx-building" />
+              <div>Branch Staff</div>
+            </a>
+            {parcelOpen && (
               <ul className="menu-sub">
                 <li className="menu-item">
                   <Link to="/add-branch-staff" className="menu-link">
