@@ -49,7 +49,7 @@ const Sidebar = () => {
               </svg>
             </span>
             <span className="app-brand-text demo menu-text fw-bolder ms-2">
-              Sneat
+              SwiftCourier
             </span>
           </Link>
           <a
@@ -150,7 +150,7 @@ const Sidebar = () => {
                 setBstaffOpen(!bstaffOpen);
               }}
             >
-              <i className="menu-icon tf-icons bx bx-building" />
+              <i className="menu-icon tf-icons bx bx-group" />
               <div>Branch Staff</div>
             </a>
             {bstaffOpen && (
@@ -178,18 +178,18 @@ const Sidebar = () => {
                 setParcelOpen(!parcelOpen);
               }}
             >
-              <i className="menu-icon tf-icons bx bx-building" />
-              <div>Branch Staff</div>
+              <i className="menu-icon tf-icons bx bx-shopping-bag" />
+              <div>Parcels</div>
             </a>
             {parcelOpen && (
               <ul className="menu-sub">
                 <li className="menu-item">
-                  <Link to="/add-branch-staff" className="menu-link">
+                  <Link to="/add-parcel" className="menu-link">
                     <div>Add New</div>
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <Link to="/manage-branch-staff" className="menu-link">
+                  <Link to="/manage-parcel" className="menu-link">
                     <div>Manage All</div>
                   </Link>
                 </li>

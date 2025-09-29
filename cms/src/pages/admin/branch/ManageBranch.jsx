@@ -3,7 +3,7 @@ import Sidebar from '../../../components/admin/Sidebar';
 import Navbar from '../../../components/admin/Navbar';
 import Footer from '../../../components/admin/Footer';
 
-const ManageRegList = () => {
+const ManageBranch = () => {
     return (
         <div>
             <div>
@@ -25,7 +25,7 @@ const ManageRegList = () => {
                 <div className="card-body">
                   {/* Insert Your content here */}
 
-                  Manage List
+                  Manage Branch
                   
                 </div>
               </div>
@@ -49,4 +49,4 @@ const ManageRegList = () => {
     );
 };
 
-export default ManageRegList;
+export default ManageBranch;
