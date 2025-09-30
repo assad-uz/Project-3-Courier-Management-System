@@ -40,7 +40,7 @@ CREATE TABLE branch_staff (
 -- ===============================
 -- Parcel Table
 -- ===============================
-CREATE TABLE parcels (
+CREATE TABLE parcel (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id VARCHAR(50) NOT NULL,
     created_by INT,

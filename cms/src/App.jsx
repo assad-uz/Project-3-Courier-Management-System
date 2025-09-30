@@ -9,8 +9,8 @@ import ManageBranch from "./pages/admin/branch/ManageBranch";
 import AddNew from './pages/admin/branch-staff/AddNew';
 import ManageList from "./pages/admin/branch-staff/ManageList";
 import ManageRegList from "./pages/admin/registration/ManageList";
-import AddNewParcel from "./pages/admin/parcels/AddNewParcel";
-import ManageParcelList from "./pages/admin/parcels/ManageParcelList";
+import AddNewParcel from "./pages/admin/parcel/AddNewParcel";
+import ManageParcelList from "./pages/admin/parcel/ManageParcelList";
 
 const App = () => {
   return (
